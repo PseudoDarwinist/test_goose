@@ -10,7 +10,7 @@ permissions:
   issues: write
 
 env:
-  PROVIDER_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+  GOOGLE_API_KEY: ${{ secrets.GEMINI_API_KEY }}
   PR_NUMBER: ${{ github.event.pull_request.number }}
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   GOOSE_DISABLE_KEYRING: "true"
@@ -47,8 +47,8 @@ jobs:
         run: |
           mkdir -p ~/.config/goose
           cat <<EOF > ~/.config/goose/config.yaml
-          GOOSE_PROVIDER: openai
-          GOOSE_MODEL: gpt-4o
+          GOOSE_PROVIDER: gemini
+          GOOSE_MODEL: gemini-2.5-flash
           keyring: false
           EOF
 
